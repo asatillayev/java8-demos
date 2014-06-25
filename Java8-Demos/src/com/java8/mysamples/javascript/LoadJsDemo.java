@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.nio.file.FileSystems;
 
 /**
  * User: Jamshid Asatillayev
@@ -17,7 +18,8 @@ public class LoadJsDemo {
     public static void main(String[] args) throws FileNotFoundException {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("nashorn");
-        File jsFile = new File("script/sample.js"); //todo path problem here
+
+        File jsFile = FileSystems.getDefault().getPath("Java8-Demos/script/sample.js").toFile();
 
         Reader reader = new FileReader(jsFile);
 
